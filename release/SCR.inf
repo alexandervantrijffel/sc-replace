@@ -1,0 +1,198 @@
+;--------------------------------------------------------------------------
+;
+; zeniko's Setup - A tiny setup routine for launching .inf files.
+; Copyleft (C) 2001 - 2003  Simon Bünzli (zeniko@gmx.ch)
+;
+; Distributed under the GNU General Public License (see zetup.htm)
+;
+;--------------------------------------------------------------------------
+
+;--------------------------------------------------------------------------
+; Rename this file to AppName.inf (or however your application is called)
+; and make the necessary modifications below.
+;
+; Note: Lines starting with a semicolon are comments. Sometimes you'll have
+; to remove the leading semicolon in order to activate an option.
+;
+; When you finished, make sure that the strings "AppName" and "FileName"
+; don't exist anymore in this file (you'll have to adapt them all)!
+;--------------------------------------------------------------------------
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%SetupAuthor%
+
+;--------------------------------------------------------------------------
+; Replace AppName with the name of your application and indicate its
+; version and your name.
+;--------------------------------------------------------------------------
+[Strings]
+SetupName="SCR"
+SetupVersion="v1.00"
+SetupAuthor="Soft-Central"
+
+;--------------------------------------------------------------------------
+; If you set SetupBrowse, Setup will ask the user where to install the
+; application to (default will be: C:\Program Files\AppNameDir) -
+; SetupDir will then be set accordingly.
+;
+; Note: Don't put any spaces or fancy characters in this value.
+; Beware: If you ommit SetupBrowse, make sure to set SetupDir! The value of
+; SetupDir must not be put in quotes!
+;--------------------------------------------------------------------------
+SetupBrowse="SCR"
+SetupDir=
+
+;--------------------------------------------------------------------------
+; Indicate here the registry key your application will be using.
+;
+; Beware: Just replace "AppName", do not modify the rest of the strings!
+;--------------------------------------------------------------------------
+SetupRegKey="Software\SoftCentral\SCR"
+UIF="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\SCR"
+RUN="SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\Setup"
+
+;--------------------------------------------------------------------------
+; List here all the files to be installed (in form: filename.ext=1).
+; Note: It is recommended not to have spaces in the filenames.
+; Note: Setup.exe is needed for the uninstallation.
+;--------------------------------------------------------------------------
+[SourceDisksFiles]
+SCR.inf=1
+SCR.exe=1
+Readme.txt
+Setup.exe=1
+
+;--------------------------------------------------------------------------
+; List here all the files (out of the above listed) which will be installed
+; in your application's main folder.
+;--------------------------------------------------------------------------
+[Setup.Files.Prg]
+SCR.exe
+Readme.txt
+Setup.exe
+
+;--------------------------------------------------------------------------
+; List here all the files which will be installed in Windows' main folder.
+;--------------------------------------------------------------------------
+[Setup.Files.Win]
+
+;--------------------------------------------------------------------------
+; List here all the files which will be installed in Windows' System folder
+; Note: Make for each DLL and OCX a copy of the regsvr32 line at
+; [Setup.Add.Reg] below and adapt that line.
+; Note: These files won't be removed at the uninstallation.
+;--------------------------------------------------------------------------
+[Setup.Files.Sys]
+;FileName.dll
+;FileName.ocx
+
+;--------------------------------------------------------------------------
+; Put here the name of this file (as it contains some information for
+; uninstallation and should also be installed).
+;--------------------------------------------------------------------------
+[Setup.Files.Inf]
+SCR.inf
+
+;--------------------------------------------------------------------------
+; List here all the files which will be created by your application and
+; have to be uninstalled, although they were not installed initially.
+;--------------------------------------------------------------------------
+[Setup.Files.Prg.Uninst]
+
+;--------------------------------------------------------------------------
+; Append here any entry you want to make to the registry (the main keys
+; are: HKLM = Local Machine; HKCU = Current User; HKCR = Classes Root).
+;
+; Note: In order to delete them at uninstallation, indicate the key names
+; at [Setup.Del.Reg] below, too (your application's main registry key is
+; already listed there (%SetupRegKey% - make sure you indicated it well).
+;
+; Note: The third and fourth key demonstrate how to run any program during
+; the installation (in this case: registering of DLLs and OCXs).
+;--------------------------------------------------------------------------
+[Setup.Add.Reg]
+HKLM,%UIF%,"DisplayName",,"%SetupName% %SetupVersion%"
+HKLM,%UIF%,"UninstallString",,"""%SetupDir%\Setup.exe"" /u ""%17%\SCR.inf"""
+
+[Setup.Del.Reg]
+HKLM,%UIF%
+HKLM,%SetupRegKey%
+
+;--------------------------------------------------------------------------
+; Adapt the lines below in order to get the Start Menu entries all right.
+; Repeat them at [Setup.Rem.Inis] so they get removed at uninstallation.
+;--------------------------------------------------------------------------
+[Setup.Inis]
+setup.ini, progman.groups,, "group=Soft-Central %SetupName%"
+
+;---- Create the links to the executable, etc. ----
+setup.ini, group,, """%SetupName%"", ""%SetupDir%\SCR.exe"",,,,""%SetupDir%"""
+setup.ini, group,, """SCR ReadMe"", ""%SetupDir%\Readme.txt"""
+
+;---- Creates the link to the uninstallation routine ----
+setup.ini, group,, """Uninstall %SetupName%"", """"""%SetupDir%\Setup.exe"""" /u %17%\SCR.inf"", ""%11%\shell32.dll"", 31"
+
+[Setup.Rem.Inis]
+setup.ini, progman.groups,, "group=Soft-Central %SetupName%"
+setup.ini, group,, """%SetupName%"""
+setup.ini, group,, """SCR ReadMe"""
+setup.ini, group,, """Uninstall %SetupName%"""
+
+
+;--------------------------------------------------------------------------
+; Below this point you shouldn't have to change anything...
+;--------------------------------------------------------------------------
+
+;--------------------------------------------------------------------------
+; Unless you want to have some differences for Windows NT/2000/XP:
+; In this case uncomment the sections [DefaultInstall.NT] and
+; [Setup.Add.Reg.NT] at the very bottom of this file and adapt
+; [Setup.Add.Reg.NT] to you needs...
+;--------------------------------------------------------------------------
+[DefaultInstall]
+CopyFiles=Setup.Files.Prg,Setup.Files.Win,Setup.Files.Sys,Setup.Files.Inf
+AddReg=Setup.Add.Reg
+UpdateInis=Setup.Inis
+Uninstall=DefaultUninstall
+
+[DefaultUninstall]
+DelFiles=Setup.Files.Prg,Setup.Files.Win,Setup.Files.Inf,Setup.Files.Prg.Uninst
+DelReg=Setup.Del.Reg
+UpdateInis=Setup.Rem.Inis
+
+[DestinationDirs]
+;---- Custom directory, to be indicated during installation ----
+Setup.Files.Prg=0,"%SetupDir%"
+Setup.Files.Prg.Uninst=0,"%SetupDir%"
+;---- Windows directory ----
+Setup.Files.Win=10
+;---- Windows\System directory ----
+Setup.Files.Sys=11
+;---- Windows\INF directory ----
+Setup.Files.Inf=17
+
+[SourceDisksNames]
+1="%SetupName% %SetupVersion%",,1
+
+
+;--------------------------------------------------------------------------
+; Windows NT/2000/XP section: may be removed if not needed...
+;
+; ... or extended if more precise differentiation is necessary: simply copy
+; the sections from above, append .NT to their name and change the
+; references in the [DefaultInstall.NT] section to them. You can also add a
+; [DefaultUninstall.NT] section and more subsections in the same way...
+;--------------------------------------------------------------------------
+;[DefaultInstall.NT]
+;CopyFiles=Setup.Files.Prg,Setup.Files.Win,Setup.Files.Sys,Setup.Files.Inf
+;AddReg=Setup.Add.Reg.NT
+;UpdateInis=Setup.Inis
+;Uninstall=DefaultUninstall
+;
+;[Setup.Add.Reg.NT]
+;HKLM,%UIF%,"DisplayName",,"%SetupName% %SetupVersion%"
+;HKLM,%UIF%,"UninstallString",,"%SetupDir%\Setup.exe /u %17%\SCR.inf"
+;;HKLM,%RUN%,%SetupName%,,"regsvr32.exe /s %11%\FileName.dll"
+;;HKLM,%RUN%,%SetupName%,,"regsvr32.exe /s %11%\FileName.ocx"
+;--------------------------------------------------------------------------

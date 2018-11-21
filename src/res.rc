@@ -1,0 +1,233 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DLG_MAIN DIALOGEX 0, 0, 423, 205
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Input"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIRECTORY,81,19,240,14,ES_AUTOHSCROLL,
+                    WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+    PUSHBUTTON      "",IDC_BROWSED,325,19,14,14,BS_BITMAP
+    EDITTEXT        IDC_FILE,81,36,240,14,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "",IDC_BROWSEF,325,36,14,14,BS_BITMAP
+    CONTROL         "&Include subdirectories",IDC_BSUBDIRS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,47,56,85,10
+    EDITTEXT        IDC_REPLACE,81,90,240,14,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_REPLACEWITH,81,108,240,14,ES_AUTOHSCROLL,
+                    WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+    CONTROL         "Replace text in file&names (rename)",IDC_BRENAME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,47,131,124,10
+    CONTROL         "Case &sensitive",IDC_BCASESENSITIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,234,131,61,10
+    CONTROL         "Replace text in &files",IDC_BREPLACE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,47,144,77,10
+    CONTROL         "Don't &make any changes",IDC_BNOCHANGES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,47,176,95,10
+    LTEXT           "Directory:",IDC_STATIC,22,22,35,8
+    LTEXT           "File(s):",IDC_STATIC,22,39,21,8
+    LTEXT           "Replace:",IDC_STATIC,22,93,30,8
+    GROUPBOX        "Text",IDC_STATIC,7,76,407,83
+    LTEXT           "Replace with:",IDC_STATIC,22,111,44,8
+    GROUPBOX        "Options",IDC_STATIC,8,163,407,32
+    CONTROL         106,ID_ABOUT,"Static",SS_BITMAP | SS_NOTIFY,352,20,50,33
+    GROUPBOX        "Files && Directories",IDC_STATIC,7,6,407,66
+END
+
+IDD_DLG_ABOUT DIALOG DISCARDABLE  0, 0, 423, 205
+STYLE DS_MODALFRAME | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "SCR 1.0 Freeware edition",IDC_STATIC,60,25,82,8
+    LTEXT           "Created by A. van Trijffel, Soft-Central",IDC_STATIC,60,
+                    35,119,8
+    LTEXT           "Copyright © 2002  -  Soft-Central. All rights reserved.",
+                    IDC_STATIC,10,192,164,8
+    CONTROL         106,IDC_STATIC,"Static",SS_BITMAP,352,20,50,33
+    ICON            IDI_MAIN,IDC_STATIC,19,24,20,20
+    LTEXT           "Send an e-mail to support@soft-central.net for questions and comments about this product.\r\nVisit www.soft-central.net for other free tools of Soft-Central.",
+                    IDC_STATIC,60,87,339,25
+END
+
+IDD_DLG_RESULTS DIALOGEX 0, 0, 423, 205
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Results"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDC_RESULTSCANCEL,310,188,105,13,WS_DISABLED
+    CONTROL         "Results",IDC_RESULTS,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,10,10,405,175,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    LTEXT           "",IDC_STATUS,57,191,237,8
+    LTEXT           "Current file:",IDC_STATIC,12,191,36,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DLG_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 416
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 200
+    END
+
+    IDD_DLG_RESULTS, DIALOG
+    BEGIN
+        TOPMARGIN, 3
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON    DISCARDABLE     "main.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Dutch (Netherlands) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NLD)
+#ifdef _WIN32
+LANGUAGE LANG_DUTCH, SUBLANG_DUTCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BROWSE              BITMAP  DISCARDABLE     "browse.bmp"
+IDB_SCLOGO              BITMAP  DISCARDABLE     "sclogo.bmp"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Soft-Central\0"
+            VALUE "FileDescription", "Search And Replace\0"
+            VALUE "FileVersion", "1, 0, 0001,0\0"
+            VALUE "InternalName", "SCR\0"
+            VALUE "LegalCopyright", "Copyright © 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "SCR.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "SCR\0"
+            VALUE "ProductVersion", "1, 0, 0001, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // Dutch (Netherlands) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

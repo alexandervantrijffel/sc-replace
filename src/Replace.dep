@@ -1,0 +1,41 @@
+# Microsoft Developer Studio Generated Dependency File, included by Replace.mak
+
+.\Replace.cpp : \
+	"..\..\..\program files\microsoft sdk\include\guiddef.h"\
+	"..\..\..\program files\microsoft sdk\include\propidl.h"\
+	"..\..\..\program files\microsoft sdk\include\shldisp.h"\
+	"..\..\..\program files\microsoft sdk\include\shobjidl.h"\
+	"..\..\..\program files\microsoft sdk\include\shtypes.h"\
+	".\Replace1.h"\
+	".\SCMem.h"\
+	
+
+.\Replace1.cpp : \
+	"..\..\..\program files\microsoft sdk\include\guiddef.h"\
+	"..\..\..\program files\microsoft sdk\include\propidl.h"\
+	"..\..\..\program files\microsoft sdk\include\shldisp.h"\
+	"..\..\..\program files\microsoft sdk\include\shobjidl.h"\
+	"..\..\..\program files\microsoft sdk\include\shtypes.h"\
+	".\Replace1.h"\
+	".\SCMem.h"\
+	
+
+.\res.rc : \
+	".\browse.bmp"\
+	".\main.ico"\
+	".\sclogo.bmp"\
+	
+
+.\SCMem.cpp : \
+	"..\..\..\program files\microsoft sdk\include\guiddef.h"\
+	".\SCMem.h"\
+	
+
+.\StdAfx.cpp : \
+	"..\..\..\program files\microsoft sdk\include\basetsd.h"\
+	"..\..\..\program files\microsoft sdk\include\guiddef.h"\
+	"..\..\..\program files\microsoft sdk\include\reason.h"\
+	"..\..\..\program files\microsoft sdk\include\stralign.h"\
+	"..\..\..\program files\microsoft sdk\include\tvout.h"\
+	".\StdAfx.h"\
+	
